@@ -1,10 +1,9 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 #boxss{
     height: 30px;
     width: 40px;
     accent-color: rgba(50, 50, 133, 0.76);
-}
-.leaf{
-    background-image: url(headpic.jpg);
-    background-size: cover;
 }

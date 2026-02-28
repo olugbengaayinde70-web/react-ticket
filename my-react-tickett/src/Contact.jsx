@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Contact() {
+function Contact({ darkMode }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,14 +23,14 @@ function Contact() {
   }
 
   return (
-    <div id='contact' className='w-full bg-gradient-to-br from-sky-700 via-sky-600 to-sky-800 py-16 md:py-24 px-4'>
+    <div id='contact' className={`w-full py-16 md:py-24 px-4 ${darkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' : 'bg-gradient-to-br from-sky-700 via-sky-600 to-sky-800'}`}>
       <div className='max-w-6xl mx-auto'>
         {/* Header */}
         <div className='text-center mb-12'>
           <h2 className='text-4xl md:text-6xl font-extrabold text-white mb-4 tracking-tight'>
             Get In Touch
           </h2>
-          <p className='text-lg md:text-xl text-sky-100 max-w-2xl mx-auto'>
+          <p className={`text-lg md:text-xl ${darkMode ? 'text-gray-400' : 'text-sky-100'} max-w-2xl mx-auto`}>
             Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
         </div>
@@ -39,49 +39,49 @@ function Contact() {
           {/* Contact Info Cards */}
           <div className='space-y-6'>
             {/* Email Card */}
-            <div className='group bg-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/30 cursor-pointer'>
+            <div className={`group backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer ${darkMode ? 'bg-gray-800/80 hover:bg-gray-700/80' : 'bg-white/10 hover:bg-white/20'} ${darkMode ? 'hover:shadow-amber-500/30' : 'hover:shadow-sky-500/30'}`}>
               <div className='flex items-center gap-4'>
                 <div className='w-14 h-14 bg-amber-500 rounded-xl flex items-center justify-center text-2xl shadow-lg group-hover:rotate-12 transition-transform duration-300'>
                   📧
                 </div>
                 <div>
                   <h3 className='text-xl font-bold text-white mb-1'>Email Us</h3>
-                  <p className='text-sky-100'>info@lagostechcon.com</p>
-                  <p className='text-sky-100'>support@lagostechcon.com</p>
+                  <p className={darkMode ? 'text-gray-400' : 'text-sky-100'}>info@lagostechcon.com</p>
+                  <p className={darkMode ? 'text-gray-400' : 'text-sky-100'}>support@lagostechcon.com</p>
                 </div>
               </div>
             </div>
 
             {/* Phone Card */}
-            <div className='group bg-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/30 cursor-pointer'>
+            <div className={`group backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer ${darkMode ? 'bg-gray-800/80 hover:bg-gray-700/80' : 'bg-white/10 hover:bg-white/20'} ${darkMode ? 'hover:shadow-amber-500/30' : 'hover:shadow-sky-500/30'}`}>
               <div className='flex items-center gap-4'>
                 <div className='w-14 h-14 bg-amber-500 rounded-xl flex items-center justify-center text-2xl shadow-lg group-hover:rotate-12 transition-transform duration-300'>
                   📞
                 </div>
                 <div>
                   <h3 className='text-xl font-bold text-white mb-1'>Call Us</h3>
-                  <p className='text-sky-100'>+234 800 123 4567</p>
-                  <p className='text-sky-100'>+234 800 987 6543</p>
+                  <p className={darkMode ? 'text-gray-400' : 'text-sky-100'}>+234 800 123 4567</p>
+                  <p className={darkMode ? 'text-gray-400' : 'text-sky-100'}>+234 800 987 6543</p>
                 </div>
               </div>
             </div>
 
             {/* Location Card */}
-            <div className='group bg-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/30 cursor-pointer'>
+            <div className={`group backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer ${darkMode ? 'bg-gray-800/80 hover:bg-gray-700/80' : 'bg-white/10 hover:bg-white/20'} ${darkMode ? 'hover:shadow-amber-500/30' : 'hover:shadow-sky-500/30'}`}>
               <div className='flex items-center gap-4'>
                 <div className='w-14 h-14 bg-amber-500 rounded-xl flex items-center justify-center text-2xl shadow-lg group-hover:rotate-12 transition-transform duration-300'>
                   📍
                 </div>
                 <div>
                   <h3 className='text-xl font-bold text-white mb-1'>Visit Us</h3>
-                  <p className='text-sky-100'>Eko Convention Center</p>
-                  <p className='text-sky-100'>Victoria Island, Lagos, Nigeria</p>
+                  <p className={darkMode ? 'text-gray-400' : 'text-sky-100'}>Eko Convention Center</p>
+                  <p className={darkMode ? 'text-gray-400' : 'text-sky-100'}>Victoria Island, Lagos, Nigeria</p>
                 </div>
               </div>
             </div>
 
             {/* Social Media */}
-            <div className='bg-white/10 backdrop-blur-sm rounded-2xl p-6'>
+            <div className={`backdrop-blur-sm rounded-2xl p-6 ${darkMode ? 'bg-gray-800/80' : 'bg-white/10'}`}>
               <h3 className='text-xl font-bold text-white mb-4 text-center'>Follow Us</h3>
               <div className='flex justify-center gap-4'>
                 <a href="#" className='w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl hover:bg-amber-500 hover:scale-110 hover:rotate-12 transition-all duration-300'>🐦</a>
@@ -93,7 +93,7 @@ function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className='bg-white/10 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20'>
+          <div className={`backdrop-blur-md rounded-3xl p-8 shadow-2xl border ${darkMode ? 'bg-gray-800/80 border-gray-700' : 'bg-white/10 border-white/20'}`}>
             <h3 className='text-2xl md:text-3xl font-bold text-white mb-6'>Send us a Message</h3>
             <form onSubmit={handleSubmit} className='space-y-6'>
               {/* Name Input */}
@@ -105,7 +105,7 @@ function Contact() {
                   onChange={handleChange}
                   required
                   placeholder='Your Name'
-                  className='w-full bg-white/20 border-2 border-white/30 rounded-xl px-4 py-4 text-white placeholder-sky-200 focus:outline-none focus:border-amber-500 focus:bg-white/30 transition-all duration-300'
+                  className={`w-full bg-white/20 border-2 border-white/30 rounded-xl px-4 py-4 text-white placeholder-sky-200 focus:outline-none focus:border-amber-500 focus:bg-white/30 transition-all duration-300 ${darkMode ? 'bg-gray-700/50 border-gray-600' : ''}`}
                 />
                 <span className='absolute right-4 top-1/2 -translate-y-1/2 text-2xl'>👤</span>
               </div>
@@ -119,7 +119,7 @@ function Contact() {
                   onChange={handleChange}
                   required
                   placeholder='Your Email'
-                  className='w-full bg-white/20 border-2 border-white/30 rounded-xl px-4 py-4 text-white placeholder-sky-200 focus:outline-none focus:border-amber-500 focus:bg-white/30 transition-all duration-300'
+                  className={`w-full bg-white/20 border-2 border-white/30 rounded-xl px-4 py-4 text-white placeholder-sky-200 focus:outline-none focus:border-amber-500 focus:bg-white/30 transition-all duration-300 ${darkMode ? 'bg-gray-700/50 border-gray-600' : ''}`}
                 />
                 <span className='absolute right-4 top-1/2 -translate-y-1/2 text-2xl'>✉️</span>
               </div>
@@ -133,7 +133,7 @@ function Contact() {
                   required
                   placeholder='Your Message'
                   rows='5'
-                  className='w-full bg-white/20 border-2 border-white/30 rounded-xl px-4 py-4 text-white placeholder-sky-200 focus:outline-none focus:border-amber-500 focus:bg-white/30 transition-all duration-300 resize-none'
+                  className={`w-full bg-white/20 border-2 border-white/30 rounded-xl px-4 py-4 text-white placeholder-sky-200 focus:outline-none focus:border-amber-500 focus:bg-white/30 transition-all duration-300 resize-none ${darkMode ? 'bg-gray-700/50 border-gray-600' : ''}`}
                 ></textarea>
                 <span className='absolute right-4 top-6 text-2xl'>💬</span>
               </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function Time() {
+function Time({ darkMode }) {
   const targetDate = new Date('June 12, 2026 00:00:00').getTime()
   
   const [timeLeft, setTimeLeft] = useState({
@@ -32,26 +32,26 @@ function Time() {
   }, [targetDate])
 
   return (
-    <div className='w-full bg-amber-500 py-8 md:py-12 px-4'>
-      <div className='text-3xl md:text-5xl font-extrabold font-mono text-center mb-4 text-sky-900'>
+    <div className={`w-full py-8 md:py-12 px-4 ${darkMode ? 'bg-gray-700' : 'bg-amber-500'}`}>
+      <div className={`text-3xl md:text-5xl font-extrabold font-mono text-center mb-4 ${darkMode ? 'text-white' : 'text-sky-900'}`}>
         Event Starts In
       </div>
       <div className='flex flex-wrap justify-center gap-4 md:gap-8'>
-        <div className='bg-sky-900 rounded-2xl p-4 md:p-6 min-w-[100px] md:min-w-[140px] text-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:-translate-y-2 cursor-default'>
-          <div className='text-3xl md:text-5xl font-bold text-amber-400'>{timeLeft.days}</div>
-          <div className='text-lg md:text-xl text-amber-50 mt-2'>Days</div>
+        <div className={`rounded-2xl p-4 md:p-6 min-w-[100px] md:min-w-[140px] text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] ${darkMode ? 'bg-gray-800' : 'bg-sky-900'}`}>
+          <div className={`text-3xl md:text-5xl font-bold ${darkMode ? 'text-amber-400' : 'text-amber-400'}`}>{timeLeft.days}</div>
+          <div className={`text-lg md:text-xl mt-2 ${darkMode ? 'text-gray-300' : 'text-amber-50'}`}>Days</div>
         </div>
-        <div className='bg-sky-900 rounded-2xl p-4 md:p-6 min-w-[100px] md:min-w-[140px] text-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:-translate-y-2 cursor-default'>
-          <div className='text-3xl md:text-5xl font-bold text-amber-400'>{timeLeft.hours}</div>
-          <div className='text-lg md:text-xl text-amber-50 mt-2'>Hours</div>
+        <div className={`rounded-2xl p-4 md:p-6 min-w-[100px] md:min-w-[140px] text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] ${darkMode ? 'bg-gray-800' : 'bg-sky-900'}`}>
+          <div className={`text-3xl md:text-5xl font-bold ${darkMode ? 'text-amber-400' : 'text-amber-400'}`}>{timeLeft.hours}</div>
+          <div className={`text-lg md:text-xl mt-2 ${darkMode ? 'text-gray-300' : 'text-amber-50'}`}>Hours</div>
         </div>
-        <div className='bg-sky-900 rounded-2xl p-4 md:p-6 min-w-[100px] md:min-w-[140px] text-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:-translate-y-2 cursor-default'>
-          <div className='text-3xl md:text-5xl font-bold text-amber-400'>{timeLeft.minutes}</div>
-          <div className='text-lg md:text-xl text-amber-50 mt-2'>Minutes</div>
+        <div className={`rounded-2xl p-4 md:p-6 min-w-[100px] md:min-w-[140px] text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] ${darkMode ? 'bg-gray-800' : 'bg-sky-900'}`}>
+          <div className={`text-3xl md:text-5xl font-bold ${darkMode ? 'text-amber-400' : 'text-amber-400'}`}>{timeLeft.minutes}</div>
+          <div className={`text-lg md:text-xl mt-2 ${darkMode ? 'text-gray-300' : 'text-amber-50'}`}>Minutes</div>
         </div>
-        <div className='bg-sky-900 rounded-2xl p-4 md:p-6 min-w-[100px] md:min-w-[140px] text-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:-translate-y-2 cursor-default'>
-          <div className='text-3xl md:text-5xl font-bold text-amber-400'>{timeLeft.seconds}</div>
-          <div className='text-lg md:text-xl text-amber-50 mt-2'>Seconds</div>
+        <div className={`rounded-2xl p-4 md:p-6 min-w-[100px] md:min-w-[140px] text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] ${darkMode ? 'bg-gray-800' : 'bg-sky-900'}`}>
+          <div className={`text-3xl md:text-5xl font-bold ${darkMode ? 'text-amber-400' : 'text-amber-400'}`}>{timeLeft.seconds}</div>
+          <div className={`text-lg md:text-xl mt-2 ${darkMode ? 'text-gray-300' : 'text-amber-50'}`}>Seconds</div>
         </div>
       </div>
     </div>
