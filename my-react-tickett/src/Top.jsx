@@ -16,6 +16,10 @@ function Top({ darkMode, toggleDarkMode }) {
     setMenuOpen(!menuOpen)
   }
 
+  const handleNavClick = () => {
+    setMenuOpen(false)
+  }
+
   return (
     <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? (darkMode ? 'bg-gray-900/95 backdrop-blur-md shadow-2xl' : 'bg-sky-400/95 backdrop-blur-md shadow-2xl shadow-sky-900/30') : (darkMode ? 'bg-gray-900' : 'bg-sky-400')}`}>
       <div className="flex items-center justify-between p-2.5 md:p-0 md:h-[100px] max-w-7xl mx-auto">
@@ -50,10 +54,10 @@ function Top({ darkMode, toggleDarkMode }) {
           </a>
         </div>
 
-        {/* Dark Mode Toggle Button */}
+        {/* Dark Mode Toggle Button - Desktop only */}
         <button
           onClick={toggleDarkMode}
-          className={`mr-4 p-3 rounded-full transition-all duration-300 hover:scale-110 hover:rotate-12 ${darkMode ? 'bg-amber-500 text-white hover:bg-amber-400' : 'bg-gray-800 text-white hover:bg-gray-700'}`}
+          className={`hidden md:block mr-4 p-3 rounded-full transition-all duration-300 hover:scale-110 hover:rotate-12 ${darkMode ? 'bg-amber-500 text-white hover:bg-amber-400' : 'bg-gray-800 text-white hover:bg-gray-700'}`}
           aria-label='Toggle dark mode'
         >
           {darkMode ? '☀️' : '🌙'}
@@ -72,12 +76,20 @@ function Top({ darkMode, toggleDarkMode }) {
       </div>
 
       {/* Mobile Navigation Menu with slide animation */}
-      <div className={`md:hidden overflow-hidden transition-all duration-500 ${menuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`md:hidden overflow-hidden transition-all duration-500 ${menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className={`flex flex-col gap-1 p-4 shadow-inner ${darkMode ? 'bg-gray-900/98' : 'bg-sky-400/98'} backdrop-blur-sm`}>
-          <a href="#home" className={`text-lg font-serif py-3 px-4 rounded-lg transition-all duration-300 ${darkMode ? 'text-gray-200 hover:text-white hover:bg-gray-800' : 'text-gray-800 hover:text-white hover:bg-amber-500/30'} hover:pl-6`} onClick={() => setMenuOpen(false)}>Home</a>
-          <a href="#events" className={`text-lg font-serif py-3 px-4 rounded-lg transition-all duration-300 ${darkMode ? 'text-gray-200 hover:text-white hover:bg-gray-800' : 'text-gray-800 hover:text-white hover:bg-amber-500/30'} hover:pl-6`} onClick={() => setMenuOpen(false)}>Events</a>
-          <a href="#bookings" className={`text-lg font-serif py-3 px-4 rounded-lg transition-all duration-300 ${darkMode ? 'text-gray-200 hover:text-white hover:bg-gray-800' : 'text-gray-800 hover:text-white hover:bg-amber-500/30'} hover:pl-6`} onClick={() => setMenuOpen(false)}>Bookings</a>
-          <a href="#contact" className={`text-lg font-serif py-3 px-4 rounded-lg transition-all duration-300 ${darkMode ? 'text-gray-200 hover:text-white hover:bg-gray-800' : 'text-gray-800 hover:text-white hover:bg-amber-500/30'} hover:pl-6`} onClick={() => setMenuOpen(false)}>Contact</a>
+          <a href="#home" className={`text-lg font-serif py-3 px-4 rounded-lg transition-all duration-300 ${darkMode ? 'text-gray-200 hover:text-white hover:bg-gray-800' : 'text-gray-800 hover:text-white hover:bg-amber-500/30'} hover:pl-6`} onClick={handleNavClick}>Home</a>
+          <a href="#events" className={`text-lg font-serif py-3 px-4 rounded-lg transition-all duration-300 ${darkMode ? 'text-gray-200 hover:text-white hover:bg-gray-800' : 'text-gray-800 hover:text-white hover:bg-amber-500/30'} hover:pl-6`} onClick={handleNavClick}>Events</a>
+          <a href="#bookings" className={`text-lg font-serif py-3 px-4 rounded-lg transition-all duration-300 ${darkMode ? 'text-gray-200 hover:text-white hover:bg-gray-800' : 'text-gray-800 hover:text-white hover:bg-amber-500/30'} hover:pl-6`} onClick={handleNavClick}>Bookings</a>
+          <a href="#contact" className={`text-lg font-serif py-3 px-4 rounded-lg transition-all duration-300 ${darkMode ? 'text-gray-200 hover:text-white hover:bg-gray-800' : 'text-gray-800 hover:text-white hover:bg-amber-500/30'} hover:pl-6`} onClick={handleNavClick}>Contact</a>
+          
+          {/* Dark Mode Toggle - Mobile only */}
+          <button
+            onClick={toggleDarkMode}
+            className={`flex items-center justify-center gap-2 text-lg font-serif py-3 px-4 rounded-lg transition-all duration-300 mt-2 ${darkMode ? 'text-gray-200 hover:text-white hover:bg-gray-800' : 'text-gray-800 hover:text-white hover:bg-amber-500/30'}`}
+          >
+            <span>{darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}</span>
+          </button>
         </div>
       </div>
     </div>
